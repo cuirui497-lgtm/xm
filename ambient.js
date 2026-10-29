@@ -1,0 +1,2 @@
+/* Pause decorative CSS motion outside the viewport, without scroll handlers. */
+(()=>{const about=document.querySelector('.about');if(!about||!('IntersectionObserver'in window))return;let visible=false;function sync(){about.classList.toggle('ambient-active',visible&&!document.hidden)}new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync()}).observe(about);document.addEventListener('visibilitychange',sync)})();
